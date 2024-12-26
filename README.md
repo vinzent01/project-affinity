@@ -1,6 +1,6 @@
 # project-affinity
 
-![]()
+![](./screenshot.png)
 
 Seja bem vindo Ao Projeto Affinity!
 

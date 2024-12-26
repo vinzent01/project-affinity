@@ -57,7 +57,6 @@ class AiCompletion {
 
         const backend = options.backend.toLowerCase();
 
-        console.log(options)
         try {
             if (backend == "groq"){
                 return await this.groq.AutoComplete(options.messages);
