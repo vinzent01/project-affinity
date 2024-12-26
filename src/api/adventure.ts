@@ -63,11 +63,7 @@ function Setup(app : App){
                     "Como um mestre você possui alguns comandos, mas que o player não pode acessar, são eles:\n"+
                     'Algumas regras:\n'+
                     'Não crie informações, como mostrar items, equipamentos ou pertences que não tem\n'+
-                    'Sempre que o jogador realizar algo decisivo peça um teste de rolagem de dados\n'+
-                    'O jogador não tem nada no inventário exceto o seguinte: adaga\n'+
-                    'O jogador não possui nada além disso\n'+
-                    'sempre que o jogador pegar um item escreva (player ganha "nome" quantidade)'
-                
+                    'Sempre que o jogador realizar algo decisivo peça um teste de rolagem de dados\n'
             }
         ]
     
