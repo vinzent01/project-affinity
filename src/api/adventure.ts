@@ -67,7 +67,6 @@ function Setup(app : App){
             }
         ]
     
-        console.log(message);
         try {
             // verify if adventurePath exists
             if (!fs.statSync(adventurePath).isDirectory()){
@@ -106,7 +105,6 @@ function Setup(app : App){
         }
         catch(error){
             res.status(400).json({success:false, error : error});
-            console.log(error);
         }
     })
 
