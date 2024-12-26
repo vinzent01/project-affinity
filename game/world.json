@@ -1,0 +1,11 @@
+{
+    "name": "Verhes",
+    "description": 
+        "Verhes é um vasto mundo, com dois continentes e dezenas de reinos regidos por um panteão de seres divinos, lar de magia antiga e magia negra, criaturas bestiais e divinas, locais amedrontadores e pacificos e muita coisa desconhecida.",
+    "continents" : [
+        {
+            "name" : "",
+            "description" : "Verhes é o maior continente abrigando maior parte dos reinos de iridir incluindo Heillen Matrict e Revenia"
+        }
+    ]
+}

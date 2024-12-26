@@ -1,0 +1,43 @@
+
+
+<main>
+    <section class="hero">
+        <h1>Aventuras</h1>
+        <p>Escolha sua aventura ou crie uma nova para jogar DarkAgesRPG</p>
+    </section>
+
+    <section class="adventure-list">
+
+    </section>
+
+    <div class="Nova aventura'">
+        <h2>Crie uma nova aventura</h2>
+        <button>Iniciar</button>
+    </div>
+</main>
+
+<script>
+    $.get("/api/adventures", (data) => {
+
+        console.log(data);
+
+        data.forEach(element => {
+            $(".adventure-list").append(
+                $(
+                    '<div class="container">' +
+                    '   <a href="/play/' +element+'"><h1>'+element+'</h1></a>'+
+                    '</div>'
+                )
+            ) ;
+        });
+
+        this.$OuterDiv = $('<div></div>')
+            .hide()
+            .append($('<table></table>')
+                .attr({ cellSpacing : 0 })
+                .addClass("text")
+            );
+    });
+
+
+</script>

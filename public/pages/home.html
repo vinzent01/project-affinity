@@ -1,0 +1,27 @@
+<style>
+    .button-big{
+        padding : 20px;
+        font-size: 18px;
+        display: block;
+    }
+</style>
+
+<main>
+    <div class="hero">
+        <h1>Bem-vindo ao DarkAgesRPG</h1>
+        <p>Uma jornada épica de aventura aguarda por você. Prepare-se para explorar o mundo incrível de DarkAgesRPG e criar sua própria história!</p> 
+    </div>
+
+    <div class="container md center">
+        <h2 class="center-text">Vá para as aventuras</h2>
+        <p class="center-text">Escolha sua aventura ou crie uma nova</p>
+        <button id="adventures" class="button-big center">Vá para aventuras</button>
+    </div>
+
+</main>
+
+<script>
+    $("#adventures").click(()=> {
+        window.location = "/adventures"
+    })
+</script>

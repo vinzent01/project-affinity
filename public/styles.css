@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    margin: 0;
+    min-height: 100vh;
+}
+
+main {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: calc(80vh ) ;
+
+}
+
+
+a {
+    color: #333;
+}
+
+/* nav */
+nav {
+    margin-left: 20px;
+}
+
+
+/* Container */
+.container {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .sm {
+        width: 100%; /* Usa 100% da largura da tela em celulares */
+    }
+    
+    .md {
+        width: 100%; /* Também faz o médio usar 100% em celulares */
+    }
+
+    .big {
+        width: 100%; /* Faz o grande usar 100% em celulares */
+    }
+}
+
+@media (min-width: 769px) {
+    .sm {
+        width: 300px;
+    }
+
+    .md {
+        width: 600px;
+    }
+
+    .big {
+        width: 900px;
+    }
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.center-text {
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+input[type="url"] {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #f00;
+}
+
+
+
+
+#video-url, #download-type, button {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.site-icon {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between; /* Alinha itens com espaço entre eles */
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.img-invert {
+    filter: invert(1);
+}
+
+select {
+    background-color: white;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.hero {
+    padding-bottom: 4rem;
+}

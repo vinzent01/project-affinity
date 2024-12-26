@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinzent.dev</title>    
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="description" content="Vinzent framework">
+    <meta name="author" content="Vinzent.dev">
+    <meta name="google-site-verification" content="2_u4OcG7Rbmlj9LpRw6rnb-Qfv6EZaNfNcmjsCqMJqY" />
+
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+
+    <div id="header"></div>
+    
+    {{ page }}
+
+    <div id="footer"></div>
+
+    <!-- Load page components -->
+    <script>
+        $("#header").load("/components/header.html");
+        $("#footer").load("/components/footer.html");
+    </script>
+
+</body>
+</html>

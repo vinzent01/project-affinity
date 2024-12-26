@@ -1,0 +1,182 @@
+<style>
+    .console {
+        width: 100%;
+        height: 70vh;
+        background-color: #161b20f6;
+        color: #5c8cf3;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.1);
+        overflow-y: auto;
+    }
+
+    .output {
+        white-space: pre-wrap; /* Manter o formato de texto com quebras de linha */
+    }
+
+    .input-container {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .prompt {
+        margin-right: 10px;
+    }
+
+    .input {
+        background-color: transparent;
+        color: #2767f1;
+        border: none;
+        padding: 10px;
+        width: 100%;
+        font-size: 1rem;
+        font-family: 'Courier New', monospace;
+        border-radius: 4px;
+        outline: none;
+    }
+
+    .input:focus {
+        border-color: #2767f1;
+    }
+
+
+</style>
+
+  <!-- Console -->
+<main>
+    <div class="console">
+      <div id="output" class="output">
+        <!-- O conteúdo do console será exibido aqui -->
+        <p>Bem-vindo ao Projeto Affinity! Digite seu comando abaixo.</p>
+      </div>
+      <div class="input-container">
+        <span class="prompt">></span>
+        <input type="text" id="user-input" class="input" placeholder="Digite seu comando..." autofocus>
+      </div>
+    </div>
+  </main>
+
+<!---Scripts console-->
+<script>
+
+    commands = {
+        help: () =>{
+
+            appendToConsole(
+                "Listando todos os comandos do jogo...\n\n" +
+                "/help - lista todos os comandos\n" +
+                "/inventory - mostra sua mochila e seus items\n" +
+                "/map - mostra o mapa e a sua localização atual\n" 
+            )
+        },
+        inventory : () => {
+
+        }
+    }
+
+    const paths = window.location.href.split("/");
+    const adventure = paths[4];
+
+    async function SendMessage(message) {
+        const response = await fetch("/api/adventures/"+adventure+"/send-message",{
+            method : "POST",
+            body : JSON.stringify({
+                "message" : message
+            }),
+            headers : {
+                "Content-Type" : "application/json"
+            }
+        });
+
+        return await response.json();
+    }
+
+    function loadAdventures(){
+        $.get("/api/adventures/"+adventure+"/history", (data ) => {
+            data.forEach(element => {
+                if (element.role == "user"){
+                    appendToConsole("> " + element.content);
+                }
+                else {
+                    appendToConsole(element.content);
+                }
+            });
+        });
+    }
+
+    // Função para adicionar conteúdo no console
+    function appendToConsole(content) {
+        const output = document.getElementById('output');
+        const p = document.createElement('p');
+        p.textContent = content;
+        output.appendChild(p);
+        output.scrollTop = output.scrollHeight; // Desce automaticamente para a última mensagem
+    }
+
+    // Função para processar os comandos digitados
+    function processCommand(command) {
+        // Comandos reconhecidos
+        if (command.startsWith("/")) {
+            const cmd = command.slice(1).toLowerCase();
+            
+            if (cmd in commands){
+                commands[cmd]();
+            } 
+            else {
+                appendToConsole("Comando não reconhecido. Use /help para ver os comandos.");
+            }
+
+        } else {
+            async function complete() {
+                
+                const output = await SendMessage({
+                    "role" : "user",
+                    "content" : command
+                });
+                
+
+                appendToConsole(output.message.content);
+            }
+            complete();
+
+        }
+    }
+
+    function scrolldown(){
+        var console = document.getElementById("console");
+
+        if (console)
+            console.scrollTop = console.scrollHeight;
+    }
+
+    // Captura a entrada do usuário
+    $("#user-input").on("keydown", function (e) {
+
+        scrolldown();
+
+        if (e.key === "Enter") {
+            const inputField = $('#user-input');
+            const userInput = inputField.val().trim();
+
+            if (userInput !== "") {
+            appendToConsole("> " + userInput);
+            processCommand(userInput); // Processa o comando ou exibe a mensagem
+            inputField.value = ""; // Limpa o campo de entrada
+            inputField.val("");
+            }
+        }
+    });
+
+
+
+    if (!adventure){
+        window.location.href = "/adventures"
+    }
+    else {
+        // load adventure
+        loadAdventures(adventure)
+        scrolldown();
+    }
+
+</script>
