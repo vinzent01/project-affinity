@@ -32,6 +32,7 @@ main {
 
 a {
     color: var(--highlighted-text-color);
+    text-decoration-line: none;
 }
 
 /* nav */
@@ -295,3 +296,4 @@ footer a:hover {
 .highlighted  > *, .highlighted {
     color: var(--highlighted-text-color);
 }
+
