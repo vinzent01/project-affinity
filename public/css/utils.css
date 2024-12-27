@@ -1,0 +1,41 @@
+/* Estilos adicionais */
+.logo {
+    margin-left: 20px;
+}
+
+.button-big {
+    padding: 20px;
+    font-size: 18px;
+    display: block;
+}
+
+.highlighted > *, .highlighted {
+    color: var(--highlighted-text-color);
+}
+
+/* Estilos específicos para o modo de texto RPG */
+.hero {
+    padding-bottom: 4rem;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.img-invert {
+    filter: invert(1);
+}
+
+p {
+    padding-bottom: 20px;
+}

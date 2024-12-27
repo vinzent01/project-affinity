@@ -1,0 +1,43 @@
+/* Console */
+.console {
+    width: 100%;
+    height: 70vh;
+    background-color: var(--console-background-color);
+    color: var(--console-text-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 2px var(--console-text-color);
+    overflow-y: auto;
+    font-family: 'Courier New', monospace;
+}
+
+.console .output {
+    white-space: pre-wrap;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.prompt {
+    margin-right: 10px;
+}
+
+.input {
+    border: none;
+    padding: 10px;
+    width: 100%;
+    background-color: transparent;
+    color: var(--highlighted-text-color);
+    font-size: 1.1rem;
+    font-family: 'Courier New', monospace;
+    border-radius: 5px;
+}
+
+.input:focus {
+    border-color: var(--highlighted-text-color);
+}

@@ -1,0 +1,53 @@
+
+/* Estilo Geral */
+body {
+    font-family: 'Courier New', monospace; /* Fonte monoespaçada para um visual de console */
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main */
+main {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: calc(80vh);
+}
+
+.contained  {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Links */
+a {
+    color: var(--highlighted-text-color);
+    text-decoration-line: none;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
+/* Containers */
+.container {
+    background-color: var(--container-background-color);
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+/* Centralizar elementos */
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center-text {
+    text-align: center;
+}
