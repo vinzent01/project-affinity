@@ -1,0 +1,283 @@
+/* Reset básico */
+* {
+    box-sizing: border-box;
+}
+
+/* Variáveis de Cores */
+:root {
+    --background-color: #252530;
+    --header-background-color: #1c1c1f;
+    --container-background-color: #1c1c1f;
+    --text-color: #fff;
+    --highlighted-text-color: #5c8cf3;
+    --console-background-color: #161b20f6;
+    --console-text-color: #5c8cf3;
+}
+
+/* Estilo Geral */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* Main */
+main {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: calc(80vh);
+}
+
+/* Links */
+a {
+    color: var(--highlighted-text-color);
+    text-decoration-line: none;
+}
+
+/* Containers */
+.container {
+    background-color: var(--container-background-color);
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Centralizar elementos */
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center-text {
+    text-align: center;
+}
+
+/* Formulários */
+input[type="url"] {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Botões */
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #f00;
+}
+
+/* Header */
+header {
+    background-color: var(--header-background-color);
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    padding: 1rem 0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+nav {
+    padding-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #ffcc00;
+}
+
+.kofi-button {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--header-background-color);
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 1rem;
+}
+
+footer .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #007bff;
+}
+
+/* Hero Section */
+.hero {
+    padding-bottom: 4rem;
+}
+
+/* Console */
+.console {
+    width: 100%;
+    height: 70vh;
+    background-color: var(--console-background-color);
+    color: var(--console-text-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 2px var(--console-text-color);
+    overflow-y: auto;
+}
+
+.output {
+    white-space: pre-wrap;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.prompt {
+    margin-right: 10px;
+}
+
+.input {
+    background-color: transparent;
+    color: #2767f1;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-size: 1rem;
+    font-family: 'Courier New', monospace;
+    border-radius: 4px;
+    outline: none;
+}
+
+.input:focus {
+    border-color: #2767f1;
+}
+
+/* Estilos para o Header e Footer em dispositivos móveis */
+@media (max-width: 768px) {
+    .footer {
+        padding: 1rem 0;
+    }
+
+    .sm, .md, .big {
+        width: 100%;
+    }
+}
+
+/* Estilos para o Header e Footer em dispositivos maiores */
+@media (min-width: 769px) {
+    .sm {
+        width: 300px;
+    }
+
+    .md {
+        width: 600px;
+    }
+
+    .big {
+        width: 900px;
+    }
+}
+
+/* Outras classes utilitárias */
+.horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.img-invert {
+    filter: invert(1);
+}
+
+select {
+    background-color: white;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.logo {
+    margin-left: 20px;
+}
+
+/* Botões grandes */
+.button-big {
+    padding: 20px;
+    font-size: 18px;
+    display: block;
+}
+
+/* Destacar elementos */
+.highlighted > *, .highlighted {
+    color: var(--highlighted-text-color);
+}

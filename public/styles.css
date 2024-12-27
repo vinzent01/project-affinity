@@ -1,111 +1,106 @@
+/* Reset básico */
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
+/* Variáveis de Cores */
 :root {
-    --background-color : #252530;
-    --header-background-color : #1c1c1f;
-    --container-background-color : #1c1c1f;
-    --text-color : #fff;
-    --highlighted-text-color : #5c8cf3;
-    --console-background-color : #161b20f6;
-    --console-text-color : #5c8cf3;
+    --background-color: #1a1a1d; /* Fundo escuro, ideal para RPG */
+    --header-background-color: #252530; /* Cabeçalho escuro */
+    --container-background-color: #2a2b2f; /* Fundo dos containers */
+    --text-color: #e0e0e0; /* Texto claro para contraste */
+    --highlighted-text-color: #5c8cf3; /* Destaque dourado */
+    --console-background-color: #101010; /* Fundo do console */
+    --console-text-color: #5c8cf3; /* Texto no console */
+    --button-background-color: #5c8cf3; /* Cor dos botões */
+    --button-hover-background-color: #007bff; /* Cor do botão ao passar o mouse */
+    --link-hover-color: #254ea7; /* Cor dos links ao passar o mouse */
 }
 
+/* Estilo Geral */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Courier New', monospace; /* Fonte monoespaçada para um visual de console */
     background-color: var(--background-color);
     color: var(--text-color);
-    margin: 0;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
+/* Main */
 main {
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    min-height: calc(80vh ) ;
-
+    gap: 1rem;
+    min-height: calc(80vh);
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-
+/* Links */
 a {
     color: var(--highlighted-text-color);
     text-decoration-line: none;
 }
 
-/* nav */
-nav {
-    margin-left: 20px;
+a:hover {
+    color: var(--link-hover-color);
 }
 
-
-/* Container */
+/* Containers */
 .container {
     background-color: var(--container-background-color);
     padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     border-radius: 8px;
+    max-width: 100%;
 }
 
-@media (max-width: 768px) {
-    .sm {
-        width: 100%; /* Usa 100% da largura da tela em celulares */
-    }
-    
-    .md {
-        width: 100%; /* Também faz o médio usar 100% em celulares */
-    }
-
-    .big {
-        width: 100%; /* Faz o grande usar 100% em celulares */
-    }
-}
-
-@media (min-width: 769px) {
-    .sm {
-        width: 300px;
-    }
-
-    .md {
-        width: 600px;
-    }
-
-    .big {
-        width: 900px;
-    }
-}
-
+/* Centralizar elementos */
 .center {
     margin-left: auto;
     margin-right: auto;
-
 }
 
 .center-text {
     text-align: center;
 }
 
-input[type="url"] {
+/* Formulários */
+input[type="url"], .input {
     width: 80%;
-    padding: 10px;
+    padding: 12px;
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: transparent;
+    color: #f5f5f5;
+    font-size: 1rem;
+    outline: none;
+    font-family: 'Courier New', monospace;
 }
 
+input[type="url"]:focus, .input:focus {
+    border-color: var(--highlighted-text-color);
+}
+
+/* Botões */
 button {
-    padding: 10px 20px;
-    background-color: #007bff;
+    padding: 12px 24px;
+    background-color: var(--button-background-color);
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: var(--button-hover-background-color);
 }
 
 #message {
@@ -114,22 +109,14 @@ button:hover {
     color: #f00;
 }
 
-
-/* Estilos para o header */
+/* Header */
 header {
     background-color: var(--header-background-color);
-    color: #fff;
+    color: var(--text-color);
     display: flex;
     flex-direction: row;
     padding: 1rem 0;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.kofi-button {
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: auto;
-    margin-right: 20px;
 }
 
 header .container {
@@ -143,68 +130,18 @@ header .container {
 
 header h1 {
     margin: 0;
-    font-size: 1.8rem;
+    font-size: 2rem;
 }
 
-header nav ul {
+nav ul {
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding-left: 20px;
     display: flex;
     gap: 1rem;
 }
 
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-header nav ul li a:hover {
-    color: #ffcc00;
-}
-
-#video-url, #download-type, button {
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.site-icon {
-    max-width: 50px;
-    max-height: 50px;
-}
-
-.horizontal {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-items: center;
-    justify-content: space-between; /* Alinha itens com espaço entre eles */
-}
-
-.vertical {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.img-invert {
-    filter: invert(1);
-}
-
-select {
-    background-color: white;
-    border-radius: 5px;
-    padding-left: 10px;
-}
-
-.hero {
-    padding-bottom: 4rem;
-}
-
+/* Console */
 .console {
     width: 100%;
     height: 70vh;
@@ -214,10 +151,13 @@ select {
     border-radius: 8px;
     box-shadow: 0 0 2px var(--console-text-color);
     overflow-y: auto;
+    font-family: 'Courier New', monospace;
 }
 
-.output {
-    white-space: pre-wrap; /* Manter o formato de texto com quebras de linha */
+.console .output {
+    white-space: pre-wrap;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
 }
 
 .input-container {
@@ -231,69 +171,85 @@ select {
 }
 
 .input {
-    background-color: transparent;
-    color: #2767f1;
     border: none;
     padding: 10px;
     width: 100%;
-    font-size: 1rem;
+    background-color: transparent;
+    color: var(--highlighted-text-color);
+    font-size: 1.1rem;
     font-family: 'Courier New', monospace;
-    border-radius: 4px;
-    outline: none;
+    border-radius: 5px;
 }
 
 .input:focus {
-    border-color: #2767f1;
+    border-color: var(--highlighted-text-color);
 }
 
-/* Estilos para o footer */
+/* Footer */
 footer {
-    background-color: var(--header-background-color); /* Cor de fundo escura */
-    color: #fff; /* Cor do texto clara */
-    padding: 1rem 0; /* Espaçamento interno */
-    text-align: center; /* Centraliza o conteúdo */
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    background-color: var(--header-background-color);
+    color: var(--text-color);
+    padding: 1rem 0;
+    text-align: center;
     font-size: 1rem;
+    margin-top: auto;
 }
 
 footer .footer-content {
-    max-width: 1200px; /* Limita a largura do conteúdo */
-    margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 0 1rem;
-}
-
-footer a {
-    color: #fff; /* Cor dos links */
-    text-decoration: none; /* Remove o sublinhado */
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-footer a:hover {
-    color: #007bff; /* Cor azul no hover */
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
     .footer {
-        padding: 1rem 0; /* Reduz o padding em telas pequenas */
+        padding: 1rem 0;
+    }
+
+    .sm, .md, .big {
+        width: 100%;
     }
 }
 
+/* Estilos adicionais */
 .logo {
     margin-left: 20px;
 }
 
-.button-big{
-    padding : 20px;
+.button-big {
+    padding: 20px;
     font-size: 18px;
     display: block;
 }
 
-
-.highlighted  > *, .highlighted {
+.highlighted > *, .highlighted {
     color: var(--highlighted-text-color);
 }
 
+/* Estilos específicos para o modo de texto RPG */
+.hero {
+    padding-bottom: 4rem;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.img-invert {
+    filter: invert(1);
+}
+
+p {
+    padding-bottom: 20px;
+}
