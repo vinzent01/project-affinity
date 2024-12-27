@@ -1,0 +1,29 @@
+
+<div class="container floating floating-center md" id="floating-panel">
+
+    <div class="horizontal">
+
+        <h2>Deletar aventura</h2>
+        <button id="close-button" class="icon-button" >
+            <img class="icon" src="/icons/close.svg"/>
+        </button>
+    </div>
+    <p>
+        Você tem certeza? todos os seus dados salvos da aventura serão excludos.
+    </p>
+    <button id="delete-adventure-accept" class="right">Sim</button>
+    <p id="new-aventure-message"></p>
+
+</div>
+
+
+<script>
+
+
+    $("#close-button").click( () => {
+        $("#floating-panel").remove();
+    })
+
+
+</script>
+

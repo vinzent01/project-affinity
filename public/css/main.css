@@ -51,3 +51,12 @@ a:hover {
 .center-text {
     text-align: center;
 }
+
+.right {
+    margin-left: auto;
+}
+
+.list {
+    display: flex;
+    gap: 10px;
+}

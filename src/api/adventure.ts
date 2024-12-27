@@ -31,8 +31,30 @@ function Setup(app : App){
         }
     })
 
+    app.express.post("/api/adventures/delete", (req, res) => {
+        const { adventure } = req.body;
+    
+        if (adventure == undefined){
+            res.status(400).json({succes : false, error : "Invalid empty name"});
+            return
+        }
+
+        try {
+            fs.rm(path.join("game/adventures/",adventure), {recursive : true}, () => {});
+
+            res.status(200).json({success : true});
+            return;
+        }
+        catch (error) {
+            res.status(400).json({succes : false, error : "Could not delete adventure " + error});
+        }
+    })
+
     app.express.get("/api/adventures/:adventure/history", (req, res) => {
         const adventure = req.params.adventure;
+
+        const adventurePath = path.join("game/adventures", adventure);
+        const historyPath = path.join(adventurePath, "history.adata");
 
         if (adventure == undefined){
             res.status(400).json({succes : false, error : "invalid adventure param"});
@@ -40,7 +62,22 @@ function Setup(app : App){
         }
 
         try {
-            const history = LoadAdataJson(path.join("game/adventures", adventure, "history.adata"))
+            // verify if has history
+            const hasAdventure = fs.statSync(adventurePath).isDirectory();
+
+            if (hasAdventure == false){
+                res.status(400).json({success : false, error : "Adventure does nont exists"});
+            }
+
+            const hasHistory = fs.existsSync(historyPath);
+
+            if (!hasHistory){
+                console.log("does not have history");
+                // create initial history
+                fs.appendFileSync(historyPath, "role -|- content -;-\n");
+            }
+
+            const history = LoadAdataJson(historyPath)
 
             res.json(history);
         }

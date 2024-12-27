@@ -4,6 +4,7 @@
     --background-color: #1a1a1d; /* Fundo escuro, ideal para RPG */
     --header-background-color: #252530; /* Cabeçalho escuro */
     --container-background-color: #2a2b2f; /* Fundo dos containers */
+    --form-background-color: #202229; /* Fundo dos containers */
     --text-color: #e0e0e0; /* Texto claro para contraste */
     --highlighted-text-color: #5c8cf3; /* Destaque dourado */
     --console-background-color: #101010; /* Fundo do console */
@@ -11,4 +12,5 @@
     --button-background-color: #5c8cf3; /* Cor dos botões */
     --button-hover-background-color: #007bff; /* Cor do botão ao passar o mouse */
     --link-hover-color: #254ea7; /* Cor dos links ao passar o mouse */
+    --floating-background-color : #212227b9;
 }

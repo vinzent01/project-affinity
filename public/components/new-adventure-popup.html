@@ -1,0 +1,23 @@
+
+<div class="container floating floating-center md" id="floating-panel">
+
+    <div class="horizontal">
+
+        <h2>Nova aventura</h2>
+        <button id="close-button" class="icon-button" >
+            <img class="icon" src="/icons/close.svg"/>
+        </button>
+        <p id="new-aventure-message"></p>
+    </div>
+
+    <input id="input-new-adventure" placeholder="nome da aventura"></input>
+</div>
+
+
+
+<script>
+
+    $("#close-button").click( () => {
+        $("#floating-panel").remove();
+    })
+</script>

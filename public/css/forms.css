@@ -1,3 +1,16 @@
+textarea, input {
+    width: 100%;
+    background-color: var(--form-background-color);
+    border: none;
+    font-size: 22px;
+    color: var(--highlighted-text-color);
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-radius : 5px;
+}
+
 /* Formulários */
 input[type="url"], .input {
     width: 80%;
@@ -14,6 +27,7 @@ input[type="url"], .input {
 
 input[type="url"]:focus, .input:focus {
     border-color: var(--highlighted-text-color);
+    outline: none;
 }
 
 /* Botões */
@@ -26,6 +40,7 @@ button {
     cursor: pointer;
     font-size: 1.1rem;
     transition: background-color 0.3s;
+    display: block;
 }
 
 button:hover {
@@ -36,4 +51,17 @@ button:hover {
     margin-top: 20px;
     font-size: 16px;
     color: #f00;
+}
+
+.icon-button {
+    padding: 0px;
+}
+
+.icon-button > img{
+    width: 40px;
+    height: auto;
+}
+
+* > #close-button {
+    margin-left: auto;
 }

@@ -1,4 +1,9 @@
 
+<style>
+    #close-button {
+
+    }
+</style>
 
 <main class="contained">
     <section >
@@ -6,38 +11,126 @@
         <p>Escolha sua aventura ou crie uma nova para jogar DarkAgesRPG</p>
     </section>
 
-    <section class="adventure-list">
+    <section id="adventure-list" class="list vertical">
 
     </section>
 
     <div class="container">
         <h2>Crie uma nova aventura</h2>
-        <button class="button-big">Criar nova aventura</button>
+        <button id="new-adventure-button" class="button-big">Criar nova aventura</button>
     </div>
 </main>
 
+<div id="floating-panels">
+
+</div>
+
 <script>
+    var state = {
+        currentDeletingADventure : undefined
+    };
+
+</script>
+
+
+<script>
+
+    async function CreateNewAdventure(name) {
+        const response = await fetch(
+            "/api/adventures/new",
+            {
+                body : JSON.stringify({
+                    name : name
+                }),
+                headers : {
+                    "Content-Type" : "application/json"
+                },
+                method : "POST"
+            }
+        )
+
+        const json = response.json();
+
+        if (response.success == false){
+            message.text("Não foi possivel criar uma nova aventura com o nome: " + name);
+        }
+        else {
+            location.reload();
+        }
+    }
+
+    async function DeleteAdventure(adventure) {
+        const response = await fetch(
+            "/api/adventures/delete",
+            {
+                body : JSON.stringify({
+                    adventure : adventure
+                }),
+                headers : {
+                    "Content-Type" : "application/json"
+                },
+                method : "POST"
+            }
+        )
+
+        const json = response.json();
+
+        if (response.success == false){
+            message.text("Não foi possivel deletar aventura com o nome: " + adventure);
+        }
+        else {
+            location.reload();
+        }
+    }
+
     $.get("/api/adventures", (data) => {
 
         console.log(data);
 
         data.forEach(element => {
-            $(".adventure-list").append(
+            $("#adventure-list").append(
                 $(
-                    '<div class="container">' +
+                    '<div class="container horizontal">' +
                     '   <a href="/play/' +element+'"><h1>'+element+'</h1></a>'+
+                    `   <button value="${element}" class="delete-adventure-button">delete</button`+
                     '</div>'
                 )
             ) ;
         });
 
-        this.$OuterDiv = $('<div></div>')
-            .hide()
-            .append($('<table></table>')
-                .attr({ cellSpacing : 0 })
-                .addClass("text")
-            );
+        $(".delete-adventure-button").click((event)=> {
+            $("#floating-panels").load("/components/delete-adventure-popup.html", () => {
+                state.currentDeletingADventure = event.target.value
+
+                $("#delete-adventure-accept").click( () => {
+                    const toDelete = state.currentDeletingADventure;
+
+                    if (toDelete != undefined){
+
+                        DeleteAdventure(toDelete);
+
+                    }
+                })
+
+
+            })
+        })
+
+
     });
 
+    $("#new-adventure-button").click((event) => {
+        $("#floating-panels").load("/components/new-adventure-popup.html", () => {
+            $("#input-new-adventure").on("keydown", (event) => {
+                if (event.key === "Enter") {
+                    const adventure_name = $("#input-new-adventure").val();
+                    const message = $("#new-adventure-message");
+
+                    CreateNewAdventure(adventure_name);
+                }
+            })
+        });
+
+    })
 
 </script>
