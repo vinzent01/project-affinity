@@ -1,3 +1,47 @@
 role -|- content -;-user-|-ola-;-
 assistant-|-Bem-vindo ao mundo de "DarkAges"! Você é um aventureiro proativo, busca fama e riqueza nas terras distantes. Encontrei você em uma taverna na cidade de Willowdale, um local movimentado perto de uma importante estrada. Você escutou histórias sobre uma misteriosa sepultura relativamente próxima, que supostamente contenha objetos valiosos e poderosos. Através do barulho da taverna, você ouviu falar sobre um homem chamado Gorvoth, que supostamente pode dar-lhe informações sobre a sepultura. Você pensa em investigar.-;-user-|-quem é você?-;-
 assistant-|-Eu sou o seu mestre de RPG, seja bem-vindo ao mundo de DarkAges! Eu sou o responsável por guiar você através da aventura, fornecendo o cenário, os NPC's, as regras e os desafios. Eu sou o juiz, o narrador e o arbitro das ações que você realizará. Meu objetivo é fornecer uma experiência emocionante e desafiadora para você, enquanto você busca objetivo e sobrevive nas terras de DarkAges. Pode me fazer uma pergunta, realizar uma ação ou mesmo passar tempo em silêncio, é sua escolha!-;-
+user-|-vamos jogar-;-
+assistant-|-Vamos começar! Você está na taverna, circundado por um ambiente alegre e animado. Obaristas estão servindo cerveja e comida, enquanto os clientes bebem e conversam. Você vê Gorvoth, um homem barbeado e malvestido, sentado sozinho no canto da taverna, bebendo um copo de cerveja. Ele parece albergar segredos e você acha que pode ter informações sobre a sepultura.
+
+Você decide se aproximar de Gorvoth. Antes de fazê-lo, é necessário realizar um teste de Percepção (um dado de 10-sided roll). O resultado será crucial para a conversa que você irá ter com Gorvoth.-;-
+user-|-8-;-
+assistant-|-Como resultado do teste de Percepção, você nota que Gorvoth parece estar de acordo com algo, e seu olhar está fixo em algum ponto do salão. Você não vê nada de especial na direção que ele está olhando, apenas as pessoas bebendo e conversando. No entanto, você sente uma sensação estranha no ar, como se algo estivesse acontecendo em silêncio.
+
+Gorvoth notou sua aproximação e looks em você com um olhar cansado. "Ah, mais um que procura a sepultura, é?" Ele sugere.
+
+O que você vai fazer?-;-
+user-|-sim estou atrás da sepultura, o que você sabe sobre?-;-
+assistant-|-Gorvoth fecha os olhos e começa a falar em um tom baixo e hesitante. "Eu sei que a sepultura está longe, é perigoso e você já não tem ideia do que enfrenta. Mas, se você quiser saber o que eu sei... é $50".
+
+Ele abre os olhos novamente e olha diretamente para você. "Mas, se você não tiver dinheiro, acho que posso fazer uma transação. Você pode me dar um item valioso em troca da informação. Algum item que tenha conhecido um nobre ou um mercador".
+
+Ele sorri levemente e continua a falar. "Mas, é importante lembrar, você não está se tratando com um palpiteiro, você está se tratando com alguém que sabe. E eu sei que você não espera sair daqui vivo".
+
+O que você vai fazer?-;-
+user-|-eu tenho alguma habilidade?-;-
+assistant-|-Você tem habilidades!
+
+Você tem expertise em Persuasão (uma habilidade de caráter) e em Percepção (uma habilidade de habilidade).
+
+Você pode usar estas habilidades para influenciar Gorvoth ou para descobrir mais sobre a sepultura.
+
+Se você quiser usar uma habilidade, digite "Persuasão" ou "Percepção". Se não, digite qualquer outra coisa para prosseguir com a conversa.-;-
+user-|-eu respondo: Você é esperto, mas não vou cair nas suas artemanhas, vou descobrir por conta própria-;-
+assistant-|-Gorvoth ri, mostrando dentes amarelos. "Ah, você é um corajoso, não é? Acha que é inteligente o suficiente para descobrir a sepultura sozinho. Bem, eu te direi uma coisa, meu amigo. Eu não sou um mercador de segredos, eu sou um guardião.
+
+Ela é uma sepultura maldita, cheia de males e de perigos. Ninguém que foi lá voltou vivo. E você acha que vai ser diferente? Você é que é ingênuo ou é um lunático?
+
+Gorvoth se levanta e se acomoda próxima à porta. "Se você ainda quiser saber mais, eu te darei um aviso. A sepultura está guardada por criaturas infernais. E se você não tiver cuidado, elas irão matá-lo logo que você pisa na sepultura".
+
+Ele se inclina para você e sussurra: "E se você não voltar, não venha atrás de mim, eu não vou saber nada sobre você. Entendeu?"
+
+O que você vai fazer?-;-
+user-|-eu olho na minha mochila-;-
+assistant-|-Você olha na sua mochila e vê que você carregava um punhal, um saquinho de poções e uma pequeña quantidade de ouro.
+
+Você também vê que você tem um pedaço de pergaminho com um mapa desenhado. O mapa parece mostrar o caminho até a sepultura, mas há várias marcas e símbolos estranhos mostrando corpos mortos e rios de lama.
+
+Você também encontra um pequeno bilhete escondido no fundo da mochila. O bilhete é escrito em uma linguagem desconhecida, mas parece ser um aviso ou uma mensagem de amigo.
+
+O que você vai fazer?-;-
