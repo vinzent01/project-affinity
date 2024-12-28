@@ -6,6 +6,11 @@ import { ChatCompletionMessageParam } from "groq-sdk/resources/chat/completions"
 
 function Setup(app : App){
 
+
+    function TruncateMessages(messages : Array<any>, max : number){
+        return messages.slice(Math.max(messages.length - max, 1));
+    }
+
     app.express.get("/api/adventures", (req, res) => {
         const files = fs.readdirSync("game/adventures");
     
@@ -120,14 +125,17 @@ function Setup(app : App){
                 res.status(400).json({success : false, error : "invalid message role"});
                 return;
             }
-
+            // truncate data
+            
             // append data
             appendAdata(historyPath,  [message.role, message.content]);
+            const data = LoadAdataJson(historyPath);
+            const TruncatedData = TruncateMessages(data, 8);
 
             // complete with ai
             const messages = [
                 ...system,
-                ...LoadAdataJson(historyPath)
+                ...TruncatedData
             ];
 
             const result = await app.aicompletion.AutoComplete({
