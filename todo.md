@@ -12,3 +12,5 @@
 ## Versão 1.1
 
 - [ ] Adicionar regras de lógica
+ - [ ] Adicionar inventário
+ 
