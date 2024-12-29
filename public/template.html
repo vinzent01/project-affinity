@@ -27,18 +27,28 @@
     </script>
 </head>
 <body>
+    <!-- Cabeçalho -->
+    <header class="vertical">
+        <div class="logo">
+            <h1>Projeto Affinity</h1>
+        </div>
+        <nav >
+            <ul>
+                <li><a class="highlighted" href="/home">Home</a></li>
+                <li><a class="highlighted" href="/adventures">Aventuras</a></li>
+                <li><a class="highlighted" href="/about">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div id="header"></div>
-    
     {{ page }}
 
-    <div id="footer"></div>
-
-    <!-- Load page components -->
-    <script>
-        $("#header").load("/components/header.html");
-        $("#footer").load("/components/footer.html");
-    </script>
+    <footer>
+        <p>&copy; 2024 Projeto Affinity. Todos os direitos reservados.</p>
+        <div class="social-media">
+            <a href="https://github.com/vinzent01/project-affinity">Github</a>
+        </div>
+    </footer>
 
 </body>
 </html>

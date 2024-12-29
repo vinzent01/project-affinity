@@ -5,3 +5,4 @@ node_modules
 dev
 linux-x64-14.15.3
 nexe/
+pkg/

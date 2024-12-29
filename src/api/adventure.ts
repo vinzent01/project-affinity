@@ -13,7 +13,7 @@ function Setup(app : App){
     }
 
     app.express.get("/api/adventures", (req, res) => {
-        const files = fs.readdirSync("game/adventures");
+        const files = fs.readdirSync(path.join(app.rootPath, "game/adventures"));
     
         res.json(files);
     
@@ -25,7 +25,7 @@ function Setup(app : App){
         if (name == undefined)
             res.status(400).json({succes : false, error : "Invalid empty name"});
         try {
-            fs.mkdir(path.join("game/adventures/",name), (result) => {
+            fs.mkdir(path.join(app.rootPath,"game/adventures/",name), (result) => {
                 if (result?.errno)
                     res.status(400).json({success :false, error : "Could not create folder for adventure"});
             });
@@ -46,7 +46,7 @@ function Setup(app : App){
         }
 
         try {
-            fs.rm(path.join("game/adventures/",adventure), {recursive : true}, () => {});
+            fs.rm(path.join(app.rootPath, "game/adventures/",adventure), {recursive : true}, () => {});
 
             res.status(200).json({success : true});
             return;
@@ -59,7 +59,7 @@ function Setup(app : App){
     app.express.get("/api/adventures/:adventure/history", (req, res) => {
         const adventure = req.params.adventure;
 
-        const adventurePath = path.join("game/adventures", adventure);
+        const adventurePath = path.join(app.rootPath, "game/adventures", adventure);
         const historyPath = path.join(adventurePath, "history.adata");
 
         if (adventure == undefined){
@@ -94,7 +94,7 @@ function Setup(app : App){
 
     app.express.post("/api/adventures/:adventure/send-message", async (req, res) => {
         const {adventure } = req.params;
-        const adventurePath = path.join("game", "adventures", adventure);
+        const adventurePath = path.join(app.rootPath, "game", "adventures", adventure);
         const historyPath = path.join(adventurePath, "history.adata");
         const message = req.body.message;
 
