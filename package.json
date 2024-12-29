@@ -1,4 +1,10 @@
 {
+  "name": "Project-affinity",
+  "version": "1.0.0",
+  "description": "Jogue RPG de mesa com a I.A LLAMA 3 no mundo de DarkAges, utilizando a API gratuita de groq ou servindo o seu próprio modelo de linguagem.",
+  "main": "build/index.js",
+  "author": "Vinzent01",
+  "license" : "MIT",
   "type": "commonjs",
   "dependencies": {
     "bayes-classifier": "^0.0.5",
@@ -26,16 +32,5 @@
     "@types/express": "^5.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
-  },
-  "pkg": {
-    "scripts": "build/**/*.js",
-    "assets": [
-      "public/**/*",
-      "game/**/*"
-    ],
-    "targets": [
-      "node14-linux-arm64"
-    ],
-    "outputPath": "dist"
   }
 }
