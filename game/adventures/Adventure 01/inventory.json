@@ -1,0 +1,57 @@
+[
+    {
+        "name": "Espada de Fogo",
+        "type": "Weapon",
+        "description": "Uma espada encantada com magia de fogo, capaz de incinerar os inimigos com um golpe.",
+        "quantity": 1,
+        "attributes": {
+        "damage": 15,
+        "effect": "Causa dano de fogo adicional"
+        }
+    },
+    {
+        "name": "Capa da Invisibilidade",
+        "type": "Armor",
+        "description": "Uma capa que confere invisibilidade temporária ao usuário.",
+        "quantity": 1,
+        "attributes": {
+        "effect": "Invisibilidade por 1 minuto"
+        }
+    },
+    {
+        "name": "Poção de Cura",
+        "type": "Consumable Item",
+        "description": "Uma poção que restaura 50 pontos de vida.",
+        "quantity": 3,
+        "attributes": {
+        "effect": "Cura 50 HP"
+        }
+    },
+    {
+        "name": "Elixir da Agilidade",
+        "type": "Consumable Item",
+        "description": "Um elixir que aumenta temporariamente a agilidade do usuário.",
+        "quantity": 2,
+        "attributes": {
+        "effect": "Aumenta a Destreza por 5 turnos"
+        }
+    },
+    {
+        "name": "Anel de Proteção",
+        "type": "Accessory",
+        "description": "Um anel encantado que oferece resistência adicional contra ataques mágicos.",
+        "quantity": 1,
+        "attributes": {
+        "effect": "Resistência a dano mágico +20%"
+        }
+    },
+    {
+        "name": "Pergaminho de Teletransporte",
+        "type": "Magical Item",
+        "description": "Um pergaminho que permite ao usuário se teletransportar para um local previamente conhecido.",
+        "quantity": 1,
+        "attributes": {
+        "effect": "Teletransporta o usuário para um local conhecido"
+        }
+    }
+]  

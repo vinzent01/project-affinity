@@ -1,3 +1,4 @@
 .env
 ./build/*
 game/adventures/*node_modules
+dev
