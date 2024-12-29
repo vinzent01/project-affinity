@@ -8,13 +8,17 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "groq-sdk": "^0.9.1",
+    "nexe": "^4.0.0-rc.6",
     "node-nlp": "^5.0.0-alpha.4",
     "nodemon": "^3.1.9"
   },
   "scripts": {
     "dev": "npx nodemon src/index.ts",
     "build": "npx tsc --OutDir ./build",
-    "start": "node ./build/index.js"
+    "start": "node ./build/index.js",
+    "pkg-linux" : "npx nexe build/index.js --build nexe/linux-x64-14.15.3",
+    "pkg-win" : "npx nexe build/index.js --build nexe/windows-x64-14.15.3"
+
   },
   "devDependencies": {
     "@types/compression": "^1.7.5",
@@ -22,5 +26,16 @@
     "@types/express": "^5.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
+  },
+  "pkg": {
+    "scripts": "build/**/*.js",
+    "assets": [
+      "public/**/*",
+      "game/**/*"
+    ],
+    "targets": [
+      "node14-linux-arm64"
+    ],
+    "outputPath": "dist"
   }
 }

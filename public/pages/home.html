@@ -8,16 +8,46 @@
         <p>Uma jornada épica de aventura aguarda por você. Prepare-se para explorar o mundo incrível de DarkAgesRPG e criar sua própria história!</p> 
     </div>
 
-    <div class="container md center">
+    <div id="adventures-container" class="container md center">
         <h2 class="center-text">Vá para as aventuras</h2>
         <p class="center-text">Escolha sua aventura ou crie uma nova</p>
         <button id="adventures" class="button-big center">Vá para aventuras</button>
     </div>
 
+    <div id="api-key-info">
+        <h2>Parece que sua api não está configurada! Configure sua api key do grok</h2>
+
+        <p>Sem a api key não é possivel gerar textos.</p>
+
+        <p>
+            crie uma conta em <a>https://groq.com</a><br>
+            crie uma nova api kei em <a>https://console.groq.com/keys</a><br>
+            crie um arquivo .env com o seguinte conteúdo na pasta raiz<br>
+        </p>
+
+        <pre><code>GROQ_API_KEY=sua-api-aqui</code></pre>
+        
+        <p>Agora reinicie o aplicativo</p>
+    </div>
 </main>
 
 <script>
+
+    $.get("/api/has-groq-key", (data) => {
+        if (data.hasApiKey){
+            $("#adventures-container").show();
+            $("#api-key-info").hide();
+
+        }
+        else {
+            $("#adventures-container").hide();
+            $("#api-key-info").show();
+        }
+    })
+
     $("#adventures").click(()=> {
         window.location = "/adventures"
     })
+
+
 </script>

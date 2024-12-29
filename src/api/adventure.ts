@@ -3,6 +3,7 @@ import path from "path";
 import App from "../app";
 import { appendAdata, LoadAdataJson } from "../data";
 import { ChatCompletionMessageParam } from "groq-sdk/resources/chat/completions";
+import dotenv from "dotenv";
 
 function Setup(app : App){
 
@@ -152,6 +153,19 @@ function Setup(app : App){
             res.status(400).json({success:false, error : error});
         }
     })
+
+    app.express.get("/api/has-groq-key", ( req, res) => {
+        dotenv.config();
+
+        if (process.env.GROQ_API_KEY == undefined){
+            res.status(200).json({hasApiKey : false})
+            return;
+        }
+        else {
+            res.status(200).json({hasApiKey : true})
+        }
+
+    });
 
 }
 

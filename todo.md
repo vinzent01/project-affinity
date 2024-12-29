@@ -12,5 +12,6 @@
 ## Versão 1.1
 
 - [ ] Adicionar regras de lógica
- - [ ] Adicionar inventário
+    - [ ] Adicionar inventário
+    - [ ] criar um instalador
  

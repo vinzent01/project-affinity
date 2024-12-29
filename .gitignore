@@ -1,4 +1,7 @@
 .env
-./build/*
-game/adventures/*node_modules
+build/*
+game/adventures/
+node_modules
 dev
+linux-x64-14.15.3
+nexe/
