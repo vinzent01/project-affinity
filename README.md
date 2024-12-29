@@ -6,6 +6,9 @@ Seja bem vindo Ao Projeto Affinity!
 
 Jogue RPG de mesa com a I.A LLAMA 3 no mundo de DarkAges (Futuramente haverá outros mundos), utilizando a API gratuita de groq ou servindo o seu próprio modelo de linguagem (futuramente).
 
+
+[todo.md](./todo.md)
+
 ## Instalação e compilação
 
 ### Instale o node
