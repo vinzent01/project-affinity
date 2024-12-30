@@ -23,8 +23,8 @@
     "build": "npx tsc --OutDir ./build",
     "start": "node ./build/index.js",
     "electron" : "npm run build && electron build/index.js",
-    "pkg-windows" : "npm run build && npx electron-packager . --ignore=^/src --platform=win32 --arch=x64 --out pkg",
-    "pkg-linux" : "npm run build && npx electron-packager . --ignore=^/src --platform=linux --arch=x64 --out pkg"
+    "pkg-windows" : "npm run build && npx electron-packager . --ignore=.env --ignore=^/src --platform=win32 --arch=x64 --out pkg",
+    "pkg-linux" : "npm run build && npx electron-packager . --ignore=.env --ignore=^/src --platform=linux --arch=x64 --out pkg"
   },
   "devDependencies": {
     "@types/compression": "^1.7.5",
