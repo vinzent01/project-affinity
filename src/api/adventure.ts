@@ -113,18 +113,6 @@ function Setup(app : App){
         }
     });
 
-    app.express.get("/api/has-groq-key", ( req, res) => {
-        dotenv.config();
-
-        if (process.env.GROQ_API_KEY == undefined){
-            res.status(200).json({hasApiKey : false})
-            return;
-        }
-        else {
-            res.status(200).json({hasApiKey : true})
-        }
-
-    });
 
 }
 

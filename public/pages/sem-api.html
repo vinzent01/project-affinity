@@ -1,0 +1,72 @@
+<main>
+    <div id="api-key-info">
+        <h2>Parece que sua api não está configurada! Configure sua api key do grok</h2>
+
+        <p>Sem a api key não é possivel gerar textos.</p>
+
+        <div class="container">
+            <p>
+                crie uma conta em <a target="_blank" href="https://groq.com">https://groq.com</a><br>
+                crie uma nova api kei em <a target="_blank" href="https://console.groq.com/keys">https://console.groq.com/keys</a><br>
+            </p>
+
+            <label>Insira sua api key: </label>
+            <input id="api-key-input"/>
+
+        </div>
+        
+        <p>Agora reinicie o aplicativo</p>
+    </div>
+</main>
+
+<script>
+    function ShowMessageBox(message){
+
+        $("main").append(
+            '<div id="messagebox" class="container floating floating-center md" id="floating-panel">\n'+
+                '<h1>Mensagem</h1>\n'+
+                `<p>${message}</p>\n`+
+                '<button class="right" id="message-box-ok">Ok</button>\n'+
+            '</div>'
+        );
+
+        $("#message-box-ok").click( () => {
+            $("#messagebox").remove();
+            window.location.href = "/";
+            window.location.reload();
+        })
+
+    }
+
+    async function ConfigureApi(apiKey){
+        const response = await fetch(
+            "/api/set-api", 
+            {
+                method : "POST",
+                headers : {
+                    "Content-Type" : "application/json"
+                },
+                
+                body : JSON.stringify({
+                    api : apiKey
+                })
+            }
+        )
+
+        const json = await response.json();
+
+        if (json.success == true){
+            ShowMessageBox("Sua Api Key foi configurada no arquivo .env");
+        }
+    }
+
+    $("#api-key-input").on("keypress", (event) => {
+        if (event.key === "Enter"){
+            const inputApiKey = $("#api-key-input").val();
+
+            ConfigureApi(inputApiKey);
+
+        }
+    })
+
+</script>

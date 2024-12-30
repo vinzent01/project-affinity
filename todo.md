@@ -17,11 +17,11 @@
 - [ ] Adicionar regras de lógica e contexto
     - [ ] Criar contexto 
         - [ ] Criar uma forma de manipular o contexto através da I.A
-        - [ ] Contexto inicial sobre o mundo de DarkAges RPG
+        - [X] Contexto inicial sobre o mundo de DarkAges RPG
         - [ ] Contexto sobre o atual objetivo do jogador
         - [ ] Contexto sobre o inventário com items atuais do jogador
         - [ ] Contexto sobre a hora do dia
-    - [ ] Adicionar Regras
         - [ ] Adicionar regra do inventário
-        - [ ] Adicionar regras úteis
+        - [X] Adicionar regras úteis
+    - [ ] Configurar API através do próprio programa
  

@@ -9,6 +9,8 @@ import * as core from "express-serve-static-core";
 
 import adventures from "./api/adventure";
 import pages from "./api/pages";
+import apiKey from "./api/apiKey"
+
 import {app, BrowserWindow} from "electron";
 
 import fs from "fs";
@@ -25,11 +27,11 @@ class App {
     
     constructor() {
         this.electron = app;
-
+        
         if (this.electron && this.electron.isPackaged){
             this.rootPath = this.electron.getAppPath();
         }
-
+        
         this.express = express();
         this.express.use(cors());
         this.express.use(express.static(path.join(this.rootPath, 'public')));
@@ -37,17 +39,19 @@ class App {
         this.express.use(bodyParser.json()); //Handles JSON requests
         this.express.use(bodyParser.urlencoded({ extended: false })); //Handles normal post requests
         this.express.use(compression({ filter: () => false })); // Desativa compressão
-
+        
         this.AiCompletion = new AiCompletion({
             backend : 'groq'
         });
-
+        
         this.Context = new Context(this.AiCompletion);
+        this.SetupRoutes();
     }
 
     SetupRoutes(){
         adventures.Setup(this);
         pages.Setup(this);
+        apiKey.Setup(this);
     }
 
 
@@ -75,12 +79,8 @@ class App {
             this.electron.on('window-all-closed', () => {
                 if (process.platform !== 'darwin') app.quit();
             })
+        }
 
-            this.SetupRoutes();
-        }
-        else {
-            this.SetupRoutes();
-        }
 
 
 
