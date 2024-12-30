@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import App from "../app";
+import App from "../App";
 
 
 function Setup(app : App){

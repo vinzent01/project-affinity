@@ -4,6 +4,10 @@ interface LoseObject {
     [key : string] : any
 }
 
+export function TruncateHistory(messages : Array<any>, max : number){
+    return messages.slice(Math.max(messages.length - max, 1));
+}
+
 export function LoadAdataJson(path : string) : LoseObject[]{
 
     try {

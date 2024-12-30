@@ -9,28 +9,26 @@ import * as core from "express-serve-static-core";
 
 import adventures from "./api/adventure";
 import pages from "./api/pages";
-import groq from "./AiCompletion";
-import AiCompletion from "./AiCompletion";
-
 import {app, BrowserWindow} from "electron";
 
 import fs from "fs";
+import Context from "./Context";
+import AiCompletion from "./AiCompletion";
 
 class App {
 
     public express : core.Express;
-    public aicompletion : AiCompletion;
     public electron : Electron.App;
-    
     public rootPath : string = ".";
+    public Context : Context;
+    public AiCompletion : AiCompletion;
     
     constructor() {
         this.electron = app;
 
-        if (this.electron != undefined && this.electron.isPackaged){
+        if (this.electron && this.electron.isPackaged){
             this.rootPath = this.electron.getAppPath();
         }
-
 
         this.express = express();
         this.express.use(cors());
@@ -39,7 +37,12 @@ class App {
         this.express.use(bodyParser.json()); //Handles JSON requests
         this.express.use(bodyParser.urlencoded({ extended: false })); //Handles normal post requests
         this.express.use(compression({ filter: () => false })); // Desativa compressão
-        this.aicompletion = new AiCompletion();        
+
+        this.AiCompletion = new AiCompletion({
+            backend : 'groq'
+        });
+
+        this.Context = new Context(this.AiCompletion);
     }
 
     SetupRoutes(){

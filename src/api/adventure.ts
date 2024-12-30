@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
-import App from "../app";
-import { appendAdata, LoadAdataJson } from "../data";
+import App from "../App";
+import { appendAdata, LoadAdataJson } from "../Data";
 import { ChatCompletionMessageParam } from "groq-sdk/resources/chat/completions";
 import dotenv from "dotenv";
 
@@ -98,61 +98,20 @@ function Setup(app : App){
         const historyPath = path.join(adventurePath, "history.adata");
         const message = req.body.message;
 
-        let system = [
-            {
-                "role" : "system",
-                "content" : 
-                    "Aja como um mestre de RPG, seja breve responda com no máximo 1 paragrafo\n"+
-                    "Como um mestre você possui alguns comandos, mas que o player não pode acessar, são eles:\n"+
-                    'Algumas regras:\n'+
-                    'Não crie informações, como mostrar items, equipamentos ou pertences que não tem\n'+
-                    'Sempre que o jogador realizar algo decisivo peça um teste de rolagem de dados\n'
-            }
-        ]
-    
         try {
-            // verify if adventurePath exists
-            if (!fs.statSync(adventurePath).isDirectory()){
-                res.status(400).json({success: false, error : `Adventure ${adventure} does not exist`})
+            const result = await app.Context.TellStory(adventurePath, message);
+
+            if ("error" in result){
+                res.status(400).json({success : false, error : result.error});
                 return;
             }
-
-            // create file
-            if (!fs.statSync(historyPath).isFile()){
-                fs.writeFileSync(historyPath, "role -|- content -;-\n");
-            }
-
-            if (message.role in ["user", "system", "assistant"]){
-                res.status(400).json({success : false, error : "invalid message role"});
-                return;
-            }
-            // truncate data
-            
-            // append data
-            appendAdata(historyPath,  [message.role, message.content]);
-            const data = LoadAdataJson(historyPath);
-            const TruncatedData = TruncateMessages(data, 8);
-
-            // complete with ai
-            const messages = [
-                ...system,
-                ...TruncatedData
-            ];
-
-            const result = await app.aicompletion.AutoComplete({
-                backend : "groq",
-                messages : messages as Array<ChatCompletionMessageParam>
-            });
-
-
-            appendAdata(historyPath, [result.role, result.content]);
 
             res.json({message : result});
         }
         catch(error){
             res.status(400).json({success:false, error : error});
         }
-    })
+    });
 
     app.express.get("/api/has-groq-key", ( req, res) => {
         dotenv.config();
