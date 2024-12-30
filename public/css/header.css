@@ -1,5 +1,7 @@
 /* Header */
 header {
+    position: fixed;
+    width: 100%;
     background-color: var(--header-background-color);
     color: var(--text-color);
     display: flex;
