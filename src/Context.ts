@@ -3,47 +3,17 @@ import { ChatCompletionContentPart, ChatCompletionMessageParam, ChatCompletionSy
 import fs from "fs";
 import path from "path";
 import { appendAdata, LoadAdataJson, TruncateHistory as TruncateMessages } from "./Data";
-import { TextProcessor } from "./TextProcessor";
-
-interface Processors {
-    [key : string] : TextProcessor
-}
-
 
 export default class Context{
     public aiCompletion : AiCompletion;
     public initialContext : Array<ChatCompletionSystemMessageParam>;
     
-    // Game State
-    public state : Object = {
-
-        character : {
-            name : "",
-            description : "",
-            items : []
-        }
-    }
-
-    // Text processers
-    public Processors : Processors = {};
-
     constructor(AiCompletion : AiCompletion){
         this.aiCompletion = AiCompletion;
-        this.initialContext = this.CreateContext();
-
-        this.Processors.name = new TextProcessor(
-            this.aiCompletion,
-            "Responda apenas e somente o nome do sujeito principal"
-        );
-
-        this.Processors.CommandProcesser = new TextProcessor(
-            this.aiCompletion,
-            "Responda apenas e somente com comando sendo eles: /nenhumComando, /adicionarObjetivo [descrição] - use sempre que o jogador se engajar em um objetivo, /removerItem [item quantidade] - usado sempre ao perder um item largar soltar arremessar, /adicionarItem [item quantidade], /PassarTempo [horas|dias|semanas]"
-        );
+        this.initialContext = this.InitialContext();
     }
-    
 
-    public CreateContext() : Array<ChatCompletionSystemMessageParam>{
+    public InitialContext() : Array<ChatCompletionSystemMessageParam>{
 
         return [{
             role : "system",
@@ -53,10 +23,14 @@ export default class Context{
                 "O mundo é o mundo de DarkAges um mundo místico medieval\n" +
                 "As regras são as seguintes:\n" +
                 "1. Não saia do papel de mestre\n" +
-                "2. seja breve mas detalhista responda somente no maximo 1 paragráfo"
+                "2. No inicio é preciso criar um personagem\n"+
+                "3. Peça ao player que ele guarde informações sobre seu personagem em uma ficha\n"+
+                "4. seja breve mas detalhista responda somente com no maximo 1 paragráfo\n"+
+                "5. Sempre que o jogador realizar uma ação decisiva peça para ele rolar dados\n"+
+                "6. caso o jogador morrer o jogo acaba e será preciso criar outro personagem\n" +
+                "7. Espere sempre pelo comando do jogador antes de realizar qualquer ação\n"
         }]
     }
-
 
     public async TellStory( adventurePath : string, message : Message): Promise<Message | {error : string}> {
 
@@ -79,7 +53,6 @@ export default class Context{
                 error : "invalid message content empty"
             };
 
-        
         // append input message
         appendAdata(historyPath,  [message.role, message.content.toString()]);
 
@@ -96,9 +69,9 @@ export default class Context{
         const result = await this.aiCompletion.AutoComplete(messages);
 
         // append result to history
-        if ("role" in result && "content" in result )
+        if ("role" in result && "content" in result ){
             appendAdata(historyPath, [result.role, result.content]);
-
+        }
 
         return result;
     }

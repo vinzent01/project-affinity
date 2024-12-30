@@ -6,7 +6,6 @@ import compression from "compression";
 import cors from "cors";
 import * as core from "express-serve-static-core";
 
-
 import adventures from "./api/adventure";
 import pages from "./api/pages";
 import apiKey from "./api/apiKey"
@@ -80,9 +79,6 @@ class App {
                 if (process.platform !== 'darwin') app.quit();
             })
         }
-
-
-
 
         this.express.listen(port, "localhost", () => {
             console.log(`Servidor rodando em http://localhost:${port}`);

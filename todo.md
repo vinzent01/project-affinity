@@ -14,14 +14,19 @@
 
 ## Versão 1.1
 
-- [ ] Adicionar regras de lógica e contexto
-    - [ ] Criar contexto 
-        - [ ] Criar uma forma de manipular o contexto através da I.A
+- [X] Adicionar regras de lógica e contexto
+    - [X] Criar contexto 
+        - [X] Criar processadores de texto
         - [X] Contexto inicial sobre o mundo de DarkAges RPG
-        - [ ] Contexto sobre o atual objetivo do jogador
-        - [ ] Contexto sobre o inventário com items atuais do jogador
-        - [ ] Contexto sobre a hora do dia
-        - [ ] Adicionar regra do inventário
         - [X] Adicionar regras úteis
-    - [ ] Configurar API através do próprio programa
- 
+    - [X] Configurar API através do próprio programa
+    - [X] regras diversas
+    Regras : 
+        "As regras são as seguintes:\n" +
+        "1. Não saia do papel de mestre\n" +
+        "2. No inicio é preciso criar um personagem\n"+
+        "3. Peça ao player que ele guarde informações sobre seu personagem em uma ficha\n"+
+        "4. seja breve mas detalhista responda somente com no maximo 1 paragráfo\n"+
+        "5. Sempre que o jogador realizar uma ação decisiva peça para ele rolar dados\n"+
+        "6. caso o jogador morrer o jogo acaba e será preciso criar outro personagem\n" +
+        "7. Espere sempre pelo comando do jogador antes de realizar qualquer ação\n"

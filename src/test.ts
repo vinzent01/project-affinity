@@ -8,9 +8,9 @@ async function main() {
 
     const context = new Context(aiCompletion);
 
-    const result = await context.TellStory("game/adventures/nova aventura", {
+    const result = await context.TellStory("game/adventures/Adventure 01", {
         "role" : "user",
-        "content" : "Olá quem é você?"
+        "content" : "pego uma pedra do chão adicionando em meu inventário"
     })
 
     console.log(result);
